@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConnectionManager {
+public class DCM {
     private static String hostname;
     private static String username;
     private static String password;
