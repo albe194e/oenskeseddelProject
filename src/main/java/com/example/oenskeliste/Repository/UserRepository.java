@@ -2,10 +2,12 @@ package com.example.oenskeliste.Repository;
 
 import com.example.oenskeliste.Model.DCM;
 import com.example.oenskeliste.Model.User;
+import org.springframework.stereotype.Repository;
 
 
 import java.sql.*;
 
+@Repository
 public class UserRepository {
 
     Connection connection;
