@@ -9,10 +9,10 @@ public class WishList implements Comparable<WishList>{
     private boolean isOwner;
 
 
-    public WishList(int id, String name, String description) {
-        this.id = id;
+    public WishList(String name, String description, int ownerId) {
         this.name = name;
         this.description = description;
+        this.ownerId = ownerId;
     }
 
     public WishList(int id, String name, String description, int ownerId) {

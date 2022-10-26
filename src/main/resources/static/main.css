@@ -1,0 +1,72 @@
+body{
+    background-color: cadetblue;
+}
+
+.homeButton{
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+
+#headerDiv{
+    text-align: center;
+
+}
+
+.mainLoginDiv{
+    align-self: auto;
+    margin: 100px 50px 50px;
+    height: 500px;
+
+
+}
+.flexBox{
+    display: grid;
+
+}
+
+
+.homePageSubDivs{
+
+
+}
+#loginDiv1{
+    margin: 5px 5px 5px;
+    width: 49%;
+    height: 50%;
+    float: left;
+    text-align: center;
+
+
+}
+#loginDiv2{
+    margin: 5px 5px 5px;
+    width: 49%;
+    height: 50%;
+    float: right;
+    text-align: center;
+
+}
+.homePageInputs{
+    border-radius: 7px;
+}
+
+
+
+
+
+
+
+.header1{
+    font-family: Verdana, serif;
+}
+
+.homeButtonDiv{
+
+}
+
+
+
+.verdanaText{
+    font-family: Verdana, serif;
+}
