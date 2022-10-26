@@ -7,22 +7,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
+import java.util.Objects;
 
 @Controller
 public class IndexController {
-
 
 
     @GetMapping("/")
     public String index(){
         return "index";
     }
-    @PostMapping("/createUser")
-    public String createUser(WebRequest req){
 
-        if (req.getParameter("name").length() < 3) return "index";
+    @PostMapping("/create")
+    public String create(WebRequest req){
+
+        if (Objects.requireNonNull(req.getParameter("name")).length() < 3) return "index";
         else {
-            return "/makeWishList";
+            return "/create";
         }
 
     }

@@ -1,24 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="main.css">
     <meta charset="UTF-8">
-    <title>Ønskeliste</title>
+    <title>Her kan du lave din egen online ønskeseddel!</title>
 </head>
 <body>
 
-<h1>IT WORKS!!</h1>
-
-<h2>opret Bruger:</h2>
-
-<form action="/createUser" method="post">
-
-    <label for="name" >Enter name: </label> <br>
-        <input type="text" name="name">
-    <button type="submit">Submit</button>
+<div class="flexBox" id="headerDiv">
+    <h1 class="header1">Lav din egen online ønskeseddel</h1>
+    <button class="homeButton" onclick="window.location.href='http://localhost:8080/';"><img src="homebutton.png"></button>
+</div>
 
 
 
-</form>
+<div class="mainLoginDiv">
+
+    <div id="loginDiv1">
+        <h2 class="verdanaText">Her kan du oprette dig og lave din ønskeseddel</h2>
+
+        <form action="/create" method="post">
+            <label > <br>
+                Navn: <br>
+                <input class="homePageInputs" type="text" name="name">
+            </label> <br>
+
+            <label > <br>
+                Email: <br>
+                <input class="homePageInputs" type="text" name="email"> <br>
+            </label> <br>
+
+            <button type="submit">Opret ønskeseddel</button>
+        </form>
+    </div>
+
+    <div id="loginDiv2">
+        <h2 class="verdanaText">Her kan du se andres ønsker via kode</h2>
+        <form action="/getList" method="post">
+            <label >
+                Indtast kode her <br>
+                <input class="homePageInputs" type="text" name="kode"> <br>
+            </label> <br>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<!--
+
+    <form action="/create" method="post">
+
+        <label for="name">Enter you name:  <br>
+            <input type="text" name="name">
+        </label> <br>
+        <label for="email">Enter email:  <br>
+            <input type="text" name="email">
+        </label> <br>
+        <label for="age">Enter age:  <br>
+            <input type="text" name="age">
+        </label>
+        <button type="submit">Create user</button>
+
+    </form>
+
+-->
+
+
 
 </body>
 </html>
