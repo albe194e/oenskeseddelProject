@@ -1,6 +1,7 @@
 package com.example.oenskeliste.Repository;
 
 import com.example.oenskeliste.Model.DCM;
+import com.example.oenskeliste.Model.Wish;
 import com.example.oenskeliste.Model.WishList;
 import org.springframework.stereotype.Repository;
 
@@ -86,5 +87,7 @@ public class WishListRepository {
             e.printStackTrace();
         }
     }
+
+
 
 }
