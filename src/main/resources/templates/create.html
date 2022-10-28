@@ -10,20 +10,62 @@
 <button class="homeButton" onclick="window.location.href='http://localhost:8080/';"><img src="homebutton.png"></button>
 
 <div>
-
   <div>
       <h2 class="verdanaText">Her kan du tilføje dine ønsker til listen</h2>
-      <form action="/addWish">
-        <label></label>
-
-      </form>
-
+      <input id="addWish" type="text"> <br>
+      <button  onclick="addWish()">Click me to add to list</button>
+      <br>
   </div>
-
   <div>
       <h2 class="verdanaText">Her kan du fjerne dine ønsker fra listen</h2>
+      <input id="removeWish" type="text"> <br>
+      <button onclick="removeWish()">Click me to remove the wish</button> <br>
   </div>
+
+    <form action="http://localhost:8080/" method="post">
+        <ul id="wishlist">
+
+        </ul>
+
+        <button type="submit">SUBMIT ønskeseddel</button>
+    </form>
+
 </div>
+
+
+<form action="http://localhost:8080/" method="post">
+
+    <button type="submit">Submit ønskeliste</button>
+
+</form>
+
+
+<script>
+    var list = document.getElementById('wishlist')
+    var array = new array;
+
+    function addWish() {
+        var wish = document.getElementById('addWish').value;
+        if (wish.length >= 1){
+            var wishElement = document.createElement('li');
+            wishElement.id = wish;
+            wishElement.appendChild(document.createTextNode(wish));
+            list.appendChild(wishElement);
+            array.add(wish);
+            document.getElementById('addWish').value = '';
+        }
+    }
+
+    function removeWish() {
+
+        var wish = document.getElementById(document.getElementById('removeWish').value);
+
+        var wishText = wish.innerText;
+        wish.remove();
+        document.getElementById('removeWish').value = '';
+    }
+
+</script>
 
 </body>
 </html>

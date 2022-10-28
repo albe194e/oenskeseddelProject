@@ -29,7 +29,6 @@ public class IndexController {
         else {
             return "/create";
         }
-
     }
 
     @GetMapping("/logout")
