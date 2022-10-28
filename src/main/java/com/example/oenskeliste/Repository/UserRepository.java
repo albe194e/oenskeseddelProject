@@ -11,10 +11,10 @@ import java.sql.*;
 public class UserRepository {
 
     Connection connection;
-
-    public void UserRepository() {
+    //Use only when database is online
+    /*public void UserRepository() {
         connection = DCM.getConnection();
-    }
+    }*/
 
     public void createUser(User user) {
         String query = "INSERT INTO user (user_email, user_password, user_firstname, user_lastname) VALUES(?, ?, ?, ?)";
@@ -27,7 +27,7 @@ public class UserRepository {
             preparedStatement.setString(3, user.getFirstName());
             preparedStatement.setString(4, user.getLastName());
             preparedStatement.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Can't insert user");
             e.printStackTrace();
         }

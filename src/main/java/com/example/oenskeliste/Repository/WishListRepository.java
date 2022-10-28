@@ -12,7 +12,7 @@ import java.util.List;
 public class WishListRepository {
 
     Connection connection;
-
+    //Use only when database is online
     /*public WishListRepository() {
         connection = DCM.getConnection();
     }*/
@@ -73,5 +73,18 @@ public class WishListRepository {
         }
     }
 
+
+    public void updateById(WishList wishList) {
+        final String UPDATE_QUERY = "UPDATE wishlist SET wishlist_name=?, wishlist_description=? WHERE wishlist_id=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
+            preparedStatement.setString(1, wishList.getName());
+            preparedStatement.setString(2, wishList.getDescription());
+            preparedStatement.setInt(3, wishList.getId());
+        } catch (SQLException e) {
+            System.out.println("Wishlist not updated");
+            e.printStackTrace();
+        }
+    }
 
 }
