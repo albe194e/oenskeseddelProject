@@ -1,0 +1,92 @@
+body {
+    background-image: url("https://www.mural-wallpaper.com/wp-content/uploads/2021/10/S-NU23.jpg");
+    background-color: transparent;
+    background-size: cover;
+}
+
+.homeButton {
+    float: right;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    filter: grayscale(100);
+}
+
+.homeButton:hover {
+    transform: scale(2);
+    filter: grayscale(0);
+}
+
+#headerDiv {
+    text-align: center;
+
+}
+
+.mainLoginDiv {
+    align-self: auto;
+    margin: 100px 50px 50px;
+    height: 500px;
+
+
+}
+
+.flexBox {
+    display: flex;
+
+}
+
+
+.homePageSubDivs {
+
+
+}
+
+#loginDiv1 {
+    margin: 5px 5px 5px;
+    width: 49%;
+    height: 50%;
+    float: left;
+    text-align: center;
+
+
+}
+
+#loginDiv2 {
+    margin: 5px 5px 5px;
+    width: 49%;
+    height: 50%;
+    float: right;
+    text-align: center;
+
+}
+
+.homePageInputs {
+    color: #849695;
+    border-radius: 7px;
+}
+
+ul {
+    background: #868040;
+    height: 600px;
+    width: 200px;
+
+}
+
+
+.header1 {
+    font-family: Verdana, serif;
+}
+
+.homeButtonDiv {
+
+}
+
+
+.verdanaText {
+    font-family: Verdana, serif;
+}
