@@ -3,6 +3,7 @@ package com.example.oenskeliste.Repository;
 
 import com.example.oenskeliste.Model.DCM;
 import com.example.oenskeliste.Model.Wish;
+import com.example.oenskeliste.Service.UserService;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -19,17 +20,21 @@ public class WishRepository {
 
     //Use only when database is online
 
-    public void addWish(Wish wish) {
-        final String ADD_WISH_QUERY = "INSERT INTO wish(wish_name, wish_description, " +
-                "wish_price, wish_link, wishlist_id) VALUES(?, ?, ?, ?, ?)";
+    public void addWish(String[] wishes) {
+        final String ADD_WISH_QUERY = "INSERT INTO wish (UserId,Name ) VALUES(?, ?)";
+
+
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(ADD_WISH_QUERY);
-            preparedStatement.setString(1, wish.getName());
-            preparedStatement.setString(2, wish.getDescription());
-            preparedStatement.setString(3, wish.getLink());
-            preparedStatement.setInt(5, wish.getWishlistId());
-            preparedStatement.executeUpdate();
+            for (int i = 0; i < wishes.length; i++) {
+                PreparedStatement preparedStatement = connection.prepareStatement(ADD_WISH_QUERY);
+
+                preparedStatement.setInt(1,UserService.count);
+                preparedStatement.setString(2,wishes[i]);
+
+                preparedStatement.executeUpdate();
+            }
+
             System.out.println("Wish has been added");
         } catch (SQLException e) {
             System.out.println("Wish has not beed added");

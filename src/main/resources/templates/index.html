@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <title>Her kan du lave din egen online ønskeseddel!</title>
 </head>
@@ -9,9 +9,10 @@
 
 <div class="flexBox" id="headerDiv">
     <h1 class="header1">Lav din egen online ønskeseddel</h1>
-    <button class="homeButton" onclick="window.location.href='http://localhost:8080/';"><img src="homebutton.png"></button>
+    <a class="homeButton" href="window.location.href='http://localhost:8080/';">
+    <img src="homebutton.png">
+    </a>
 </div>
-
 
 
 <div class="mainLoginDiv">
@@ -20,12 +21,12 @@
         <h2 class="verdanaText">Her kan du oprette dig og lave din ønskeseddel</h2>
 
         <form action="/create" method="post">
-            <label > <br>
+            <label> <br>
                 Navn: <br>
                 <input class="homePageInputs" type="text" name="name">
             </label> <br>
 
-            <label > <br>
+            <label> <br>
                 Email: <br>
                 <input class="homePageInputs" type="text" name="email"> <br>
             </label> <br>
@@ -37,7 +38,7 @@
     <div id="loginDiv2">
         <h2 class="verdanaText">Her kan du se andres ønsker via kode</h2>
         <form action="/getList" method="post">
-            <label >
+            <label>
                 Indtast kode her <br>
                 <input class="homePageInputs" type="text" name="kode"> <br>
             </label> <br>
@@ -45,10 +46,6 @@
         </form>
     </div>
 </div>
-
-
-
-
 
 
 <!--
@@ -69,7 +66,6 @@
     </form>
 
 -->
-
 
 
 </body>

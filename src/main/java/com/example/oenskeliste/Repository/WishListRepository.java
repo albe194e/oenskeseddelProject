@@ -74,7 +74,7 @@ public class WishListRepository {
 
     public List<WishList> getAllWishlistByUserId(int id) {
         List<WishList> wishList = new ArrayList<>();
-        final String QUERY = "SELECT * FROM wishlist WHERE wishlist_owner_id=" + id;
+        final String QUERY = "SELECT * FROM wish WHERE wishlist_owner_id=" + id;
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(QUERY);

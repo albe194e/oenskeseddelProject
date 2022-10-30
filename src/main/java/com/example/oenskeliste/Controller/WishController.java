@@ -21,18 +21,19 @@ public class WishController {
     WishService wishService;
     WishRepository wishRepository;
 
+    /*
     public WishController(WishService wishService) {
         this.wishService = wishService;
     }
     //gAWBID = Get all wishes by wish id
-   /* @GetMapping("/wishList/{id}")
+   @GetMapping("/wishList/{id}")
     public String gAWBWID(@PathVariable("id") int id, Model model, HttpSession httpSession) {
         User user = (User)  httpSession.getAttribute("user");
         model.addAttribute("user", user);
         httpSession.setAttribute("wishlistSavedId", id);
         List<Wish> wish = wishService.gAWBWID(id);
         model.addAttribute("wishlist", wish);
-    }*/
+    }
 
     @PostMapping("/add-wish")
     public String addWish(@RequestParam("name") String name,

@@ -4,22 +4,27 @@ import com.example.oenskeliste.Model.Wish;
 
 import com.example.oenskeliste.Repository.WishRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.WebRequest;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class WishService {
 
-    private WishRepository wishRepository;
+    private WishRepository wishRepository = new WishRepository();
     private WishlistService wishlistService;
 
-    public WishService(WishRepository wishRepository, WishlistService wishlistService) {
-        this.wishRepository = wishRepository;
-        this.wishlistService = wishlistService;
-    }
 
-    public void addWish(Wish wish) {
-        wishRepository.addWish(wish);
+    public void addWish(WebRequest req) {
+
+
+
+        String[] wishes = req.getParameter("wish").split(";");
+
+
+        wishRepository.addWish(wishes);
     }
 
     public void deleteById(int id) {

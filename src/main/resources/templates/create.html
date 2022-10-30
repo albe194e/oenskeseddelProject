@@ -21,28 +21,27 @@
       <input id="removeWish" type="text"> <br>
       <button onclick="removeWish()">Click me to remove the wish</button> <br>
   </div>
+    <ul id="wishlist">
 
-    <form action="http://localhost:8080/" method="post">
-        <ul id="wishlist">
-
-        </ul>
-
-        <button type="submit">SUBMIT ønskeseddel</button>
-    </form>
+    </ul>
 
 </div>
 
+<form action="/submitList" method="post">
 
-<form action="/getList" method="post">
+    <input id="inputForm" type="text" name="wish">
 
-    <button onclick="returnList()">Submit ønskeliste</button>
-
+    <button type="submit">Submit ønskeliste</button>
 </form>
 
 
+
+</body>
+
 <script>
     var list = document.getElementById('wishlist')
-    var array = new array;
+
+
 
     function addWish() {
         var wish = document.getElementById('addWish').value;
@@ -51,7 +50,10 @@
             wishElement.id = wish;
             wishElement.appendChild(document.createTextNode(wish));
             list.appendChild(wishElement);
-            array.add(wish);
+
+            document.getElementById('inputForm').value = document.getElementById('inputForm').value + ';' + wish
+
+
             document.getElementById('addWish').value = '';
         }
     }
@@ -60,15 +62,17 @@
 
         var wish = document.getElementById(document.getElementById('removeWish').value);
 
+        text = document.getElementById('inputForm').value
+
+        text = text.replace(document.getElementById('removeWish').value, '')
+
+        document.getElementById('inputForm').value = text
+
         var wishText = wish.innerText;
         wish.remove();
         document.getElementById('removeWish').value = '';
     }
-    function returnList() {
-        return array
-    }
+
 
 </script>
-
-</body>
 </html>

@@ -4,6 +4,7 @@ import com.example.oenskeliste.Model.Wish;
 import com.example.oenskeliste.Model.WishList;
 import com.example.oenskeliste.Repository.WishListRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.WebRequest;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,12 +14,9 @@ import java.util.List;
 @Service
 public class WishlistService {
 
-    private WishListRepository wishListRepository;
+    private WishListRepository wishListRepository = new WishListRepository();
 
-    public WishlistService(WishListRepository wishListRepository) {
-
-        this.wishListRepository = wishListRepository;
-    }
+    
 
     public ArrayList<String> getAllByPassword(WebRequest req) {
 
