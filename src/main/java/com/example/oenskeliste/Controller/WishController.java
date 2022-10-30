@@ -53,4 +53,12 @@ public class WishController {
         wishService.updatewWishById(new Wish(id, name, description, link));
         return "redirect:/wishlist/" + httpSession.getAttribute("wishlistSavedId");
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteWish(@PathVariable("id") int id, HttpSession httpSession) {
+        wishService.deleteById(id);
+        return "redirect:/wishlist/" + httpSession.getAttribute("wishlistSavedId");
+    }
+    */
+
 }

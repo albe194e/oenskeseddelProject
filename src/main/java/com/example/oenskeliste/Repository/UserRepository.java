@@ -10,22 +10,21 @@ import java.sql.*;
 @Repository
 public class UserRepository {
 
-    Connection connection;
+    Connection connection = DCM.getConnection();
+
     //Use only when database is online
-    /*public void UserRepository() {
-        connection = DCM.getConnection();
-    }*/
+
 
     public void createUser(User user) {
-        String query = "INSERT INTO user (user_email, user_password, user_firstname, user_lastname) VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO user (Name, Email, Password) VALUES(?, ?, ?)";
+
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getPassword());
 
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getFirstName());
-            preparedStatement.setString(4, user.getLastName());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Can't insert user");
@@ -46,9 +45,8 @@ public class UserRepository {
                 int userId = resultSet.getInt(1);
                 String userEmail = resultSet.getString(2);
                 String userPassword = resultSet.getString(3);
-                String userFirstName = resultSet.getString(4);
-                String userLastName = resultSet.getString(5);
-                selectedUser = new User(userId, userEmail, userFirstName, userLastName, userPassword);
+                String userName = resultSet.getString(4);
+                selectedUser = new User(userId, userEmail, userName, userPassword);
             }
         } catch (SQLException e) {
             System.out.println("Can't find user!");

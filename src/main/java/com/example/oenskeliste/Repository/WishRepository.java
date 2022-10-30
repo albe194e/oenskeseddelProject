@@ -15,12 +15,9 @@ import java.util.List;
 @Repository
 public class WishRepository {
 
-    Connection connection;
+    Connection connection = DCM.getConnection();
 
     //Use only when database is online
-    /*public WishRepository() {
-        connection = DCM.getConnection();
-    }*/
 
     public void addWish(Wish wish) {
         final String ADD_WISH_QUERY = "INSERT INTO wish(wish_name, wish_description, " +

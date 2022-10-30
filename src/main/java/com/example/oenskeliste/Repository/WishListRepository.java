@@ -4,6 +4,8 @@ import com.example.oenskeliste.Model.DCM;
 import com.example.oenskeliste.Model.Wish;
 import com.example.oenskeliste.Model.WishList;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,11 +14,63 @@ import java.util.List;
 @Repository
 public class WishListRepository {
 
-    Connection connection;
+    Connection connection = DCM.getConnection();
     //Use only when database is online
-    /*public WishListRepository() {
-        connection = DCM.getConnection();
-    }*/
+
+    public ArrayList<String> getWishesByPassword(String password){
+
+        ArrayList<String> wishes = new ArrayList<>();
+
+        String PASSWORD_QUERY = "SELECT * FROM user WHERE Password= " + password ;
+        int userId = 0;
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(PASSWORD_QUERY);
+
+            while (resultSet.next()){
+                userId = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        String MAIN_QUERY = "SELECT * FROM wish WHERE UserId = " + userId;
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(MAIN_QUERY);
+
+            while (resultSet.next()){
+                wishes.add(resultSet.getString(2));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return wishes;
+    }
+
+    public String getNameFromPassword(String password){
+        String PASSWORD_QUERY = "SELECT * FROM user WHERE Password= " + password ;
+
+        String name = "";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(PASSWORD_QUERY);
+
+            while (resultSet.next()){
+                name = resultSet.getString(2);
+            }
+        } catch (SQLException e) {
+            System.out.println("Did not find name");
+            throw new RuntimeException(e);
+        }
+        System.out.println("Name is:" + name);
+        return name;
+    }
 
     public List<WishList> getAllWishlistByUserId(int id) {
         List<WishList> wishList = new ArrayList<>();

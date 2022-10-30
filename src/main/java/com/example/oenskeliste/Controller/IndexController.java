@@ -14,10 +14,10 @@ public class IndexController {
 
 
     @GetMapping("/")
-    public String index(HttpSession session){
+    public String index(HttpSession session) {
         String UrlTemplate = "index";
         if (session.getAttribute("user") != null) {
-        UrlTemplate = "redirect:/user-homepage";
+            UrlTemplate = "redirect:/user-homepage";
         }
         return UrlTemplate;
     }
@@ -44,7 +44,7 @@ public class IndexController {
     }
 
     @GetMapping("/signUp")
-        public String signUp() {
-            return "signUp.html";
-        }
+    public String signUp() {
+        return "signUp.html";
     }
+}
