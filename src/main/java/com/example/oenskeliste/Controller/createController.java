@@ -15,7 +15,8 @@ public class createController {
     @PostMapping("/submitList")
     public String submitList(WebRequest req){
 
-        wishService.addWishes(req);
+        if (req.getParameter("wish").length() > 1) wishService.addWishes(req);
+
 
 
         return "<!DOCTYPE html>\n" +

@@ -19,14 +19,20 @@ public class UserService {
 
     public void createUser(WebRequest req) {
 
-        User user = new User(req.getParameter("email"),
-                req.getParameter("name"),
-                createPassword());
-        if (!checkUser(user)) {
-            userRepository.createUser(user);
+        User userNoPass = new User(req.getParameter("email"),
+                req.getParameter("name"));
 
+
+        if (!checkUser(userNoPass)) {
+
+            User userWithPass = new User(req.getParameter("email"),
+                    req.getParameter("name"), createPassword());
+            userRepository.createUser(userWithPass);
+            currentUser = userWithPass;
+        } else {
+            currentUser = userNoPass;
         }
-        currentUser = user;
+
     }
 
     private boolean checkUser(User user){

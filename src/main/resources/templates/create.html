@@ -33,7 +33,7 @@
 
 <form action="/submitList" method="post">
 
-    <input id="inputForm" type="text" name="wish">
+    <input id="inputForm" type="text" name="wish" style="">
 
     <button type="submit">Submit ønskeliste</button>
 </form>
@@ -55,7 +55,7 @@
             wishElement.appendChild(document.createTextNode(wish));
             list.appendChild(wishElement);
 
-            document.getElementById('inputForm').value = document.getElementById('inputForm').value + ';' + wish
+            document.getElementById('inputForm').value = document.getElementById('inputForm').value + wish  + ';'
 
 
             document.getElementById('addWish').value = '';

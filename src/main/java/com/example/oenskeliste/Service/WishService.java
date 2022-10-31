@@ -21,7 +21,6 @@ public class WishService {
 
         String[] wishes = req.getParameter("wish").split(";");
 
-
         wishRepository.addWish(wishes);
     }
 

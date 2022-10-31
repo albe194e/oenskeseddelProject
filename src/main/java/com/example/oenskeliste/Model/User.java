@@ -15,16 +15,21 @@ public class User {
                 this.password = password;
         }
 
-        /*
-        public int getId() {
-                return id;
-        }
+    public User(String email, String name) {
+            this.email = email;
+            this.name = name;
+    }
 
-        public void setId(int id) {
-                this.id = id;
-        }
+    /*
+    public int getId() {
+            return id;
+    }
 
-         */
+    public void setId(int id) {
+            this.id = id;
+    }
+
+     */
         public String getEmail() {
                 return email;
         }

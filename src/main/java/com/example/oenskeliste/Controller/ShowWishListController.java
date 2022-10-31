@@ -22,7 +22,7 @@ public class ShowWishListController {
         String list = "";
 
         for (int i = 0; i < wishes.size(); i++) {
-            list = list + "\n \n" + wishes.get(i);
+            list = list + "\n <br> - " + wishes.get(i);
         }
 
         return "<!DOCTYPE html>\n" +
