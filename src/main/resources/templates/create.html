@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="index.css">
-  <meta charset="UTF-8">
-  <title>Create WishList</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="create.css">
+    <meta charset="UTF-8">
+    <title>Create WishList</title>
 </head>
 <body class="flexBox">
 
@@ -13,31 +14,38 @@
 </a>
 -->
 
-<div>
-  <div>
-      <h2 class="verdanaText">Her kan du tilføje dine ønsker til listen</h2>
-      <input id="addWish" type="text"> <br>
-      <button  onclick="addWish()">Click me to add to list</button>
-      <br>
-  </div>
-  <div>
-      <h2 class="verdanaText">Her kan du fjerne dine ønsker fra listen</h2>
-      <input id="removeWish" type="text"> <br>
-      <button onclick="removeWish()">Click me to remove the wish</button> <br>
-  </div>
+<div class="mainLoginDiv">
+    <div id="loginDiv1">
+        <h2 class="verdanaText">Her kan du tilføje dine ønsker til listen</h2>
+        <input id="addWish" type="text"> <br>
+        <button onclick="addWish()">Click me to add to list</button>
+        <br>
+    </div>
+    <div>
+        <h2 class="verdanaText">Her kan du fjerne dine ønsker fra listen</h2>
+        <input id="removeWish" type="text"> <br>
+        <button onclick="removeWish()">Click me to remove the wish</button>
+        <br>
+    </div>
     <ul id="wishlist">
 
     </ul>
 
 </div>
 
-<form action="/submitList" method="post">
 
-    <input id="inputForm" type="text" name="wish" style="">
+<div class="mainLoginDiv">
 
-    <button type="submit">Submit ønskeliste</button>
-</form>
+<div id="loginDiv2">
+    <form action="/submitList" method="post">
 
+        <input id="inputForm" type="text" name="wish" style="">
+
+        <button type="submit">Submit ønskeliste</button>
+    </form>
+</div>
+
+</div>
 
 
 </body>
@@ -46,16 +54,15 @@
     var list = document.getElementById('wishlist')
 
 
-
     function addWish() {
         var wish = document.getElementById('addWish').value;
-        if (wish.length >= 1){
+        if (wish.length >= 1) {
             var wishElement = document.createElement('li');
             wishElement.id = wish;
             wishElement.appendChild(document.createTextNode(wish));
             list.appendChild(wishElement);
 
-            document.getElementById('inputForm').value = document.getElementById('inputForm').value + wish  + ';'
+            document.getElementById('inputForm').value = document.getElementById('inputForm').value + wish + ';'
 
 
             document.getElementById('addWish').value = '';
