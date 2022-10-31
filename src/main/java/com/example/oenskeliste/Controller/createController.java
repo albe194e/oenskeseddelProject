@@ -22,7 +22,7 @@ public class createController {
         return "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
-                "    <link rel=\"stylesheet\" href=\"index.css\">\n" +
+                "    <link rel=\"stylesheet\" href=\"home.css\">\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>password</title>\n" +
                 "</head>\n" +

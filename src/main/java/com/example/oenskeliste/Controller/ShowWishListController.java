@@ -30,7 +30,7 @@ public class ShowWishListController {
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>ReservedList</title>\n" +
-                "    <link rel=\"stylesheet\" href=\"index.css\">\n" +
+                "    <link rel=\"stylesheet\" href=\"home.css\">\n" +
                         "\n" +
                 "<a class=\"homeButton\" href=\"http://localhost:8080/\">\n" +
                 "    <img src=\"homebutton.png\">\n" +
