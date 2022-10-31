@@ -33,7 +33,7 @@ public class ShowWishListController {
                 "    <link rel=\"stylesheet\" href=\"home.css\">\n" +
                         "\n" +
                 "<a class=\"homeButton\" href=\"http://localhost:8080/\">\n" +
-                "    <img src=\"homebutton.png\">\n" +
+                "    <img src=\"homeButton.png\">\n" +
                 "</a>\n" +
                 "</head>\n" +
                 "<body>\n" +
