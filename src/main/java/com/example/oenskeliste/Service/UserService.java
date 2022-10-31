@@ -11,17 +11,28 @@ import java.util.Random;
 @Service
 public class UserService {
 
-    private User currentUser = null;
+    public static User currentUser;
     private UserRepository userRepository = new UserRepository();
-    public static int count;
+
 
 
 
     public void createUser(WebRequest req) {
-         count++;
-        userRepository.createUser(new User(count,req.getParameter("email"),
-                                            req.getParameter("name"),
-                                            createPassword()));
+
+        User user = new User(req.getParameter("email"),
+                req.getParameter("name"),
+                createPassword());
+        if (!checkUser(user)) {
+            userRepository.createUser(user);
+
+        }
+        currentUser = user;
+    }
+
+    private boolean checkUser(User user){
+
+        return userRepository.checkIfUserExist(user);
+
     }
 
     public boolean login(String email, String password) {

@@ -22,7 +22,7 @@ public class ShowWishListController {
         String list = "";
 
         for (int i = 0; i < wishes.size(); i++) {
-            list = list + "\n" + wishes.get(i);
+            list = list + "\n \n" + wishes.get(i);
         }
 
         return "<!DOCTYPE html>\n" +
@@ -31,6 +31,10 @@ public class ShowWishListController {
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>ReservedList</title>\n" +
                 "    <link rel=\"stylesheet\" href=\"index.css\">\n" +
+                        "\n" +
+                "<a class=\"homeButton\" href=\"http://localhost:8080/\">\n" +
+                "    <img src=\"homebutton.png\">\n" +
+                "</a>\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "<h1 class=\"verdanaText\"> " + name + "'s ønskeliste </h1>\n" +

@@ -16,20 +16,20 @@ import java.util.List;
 @Repository
 public class WishRepository {
 
-    Connection connection = DCM.getConnection();
+    Connection connection = DCM.conn;
 
     //Use only when database is online
 
     public void addWish(String[] wishes) {
+
+        //Adds wishes to database
         final String ADD_WISH_QUERY = "INSERT INTO wish (UserId,Name ) VALUES(?, ?)";
-
-
 
         try {
             for (int i = 0; i < wishes.length; i++) {
                 PreparedStatement preparedStatement = connection.prepareStatement(ADD_WISH_QUERY);
 
-                preparedStatement.setInt(1,UserService.count);
+                preparedStatement.setInt(1,getUserId());
                 preparedStatement.setString(2,wishes[i]);
 
                 preparedStatement.executeUpdate();
@@ -40,6 +40,36 @@ public class WishRepository {
             System.out.println("Wish has not beed added");
             e.printStackTrace();
         }
+    }
+    public int getUserId(){
+
+        String QUARY = "SELECT Id, Name from user";
+
+        try {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+
+                if (name.equals(UserService.currentUser.getName())){
+                    System.out.println("ID: " + id +
+                            "\nName: " + name);
+                    return id;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        System.err.println("Didnt work");
+        return 0;
+
     }
 
 

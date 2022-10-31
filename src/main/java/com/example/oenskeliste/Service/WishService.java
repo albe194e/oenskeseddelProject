@@ -6,9 +6,7 @@ import com.example.oenskeliste.Repository.WishRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Service
 public class WishService {
@@ -17,7 +15,7 @@ public class WishService {
     private WishlistService wishlistService;
 
 
-    public void addWish(WebRequest req) {
+    public void addWishes(WebRequest req) {
 
 
 

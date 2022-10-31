@@ -10,7 +10,7 @@ import java.sql.*;
 @Repository
 public class UserRepository {
 
-    Connection connection = DCM.getConnection();
+    Connection connection = DCM.conn;
 
     //Use only when database is online
 
@@ -32,6 +32,30 @@ public class UserRepository {
         }
     }
 
+    public boolean checkIfUserExist(User user){
+
+        try {
+            String QUARY = "SELECT Name, Email from user";
+            PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String name = resultSet.getString(1);
+                String email = resultSet.getString(2);
+
+                if (name.equals(user.getName()) && email.equals(user.getEmail())){
+                    System.out.println("User already exists");
+                    return true;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     public User selectUserByMail(String email) {
         String query = "SELECT * FROM user WHERE user_email = '" + email + "'";
@@ -42,11 +66,10 @@ public class UserRepository {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                int userId = resultSet.getInt(1);
                 String userEmail = resultSet.getString(2);
                 String userPassword = resultSet.getString(3);
                 String userName = resultSet.getString(4);
-                selectedUser = new User(userId, userEmail, userName, userPassword);
+                selectedUser = new User(userEmail, userName, userPassword);
             }
         } catch (SQLException e) {
             System.out.println("Can't find user!");
@@ -55,6 +78,8 @@ public class UserRepository {
 
         return selectedUser;
     }
+
+
 
 
 }
