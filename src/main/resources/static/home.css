@@ -5,11 +5,13 @@ body {
     background-size: cover;
 }
 
+#homeButton {
+    margin-top: -70px;
+}
 
 .homeButton {
     /*Center image*/
     float: right;
-    margin-top: -70px;
     margin-right: 10px;
     width: 15%;
 
