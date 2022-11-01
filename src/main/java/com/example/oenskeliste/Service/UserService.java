@@ -22,15 +22,15 @@ public class UserService {
         User userNoPass = new User(req.getParameter("email"),
                 req.getParameter("name"));
 
-
-        if (!checkUser(userNoPass)) {
-
-            User userWithPass = new User(req.getParameter("email"),
-                    req.getParameter("name"), createPassword());
-            userRepository.createUser(userWithPass);
-            currentUser = userWithPass;
-        } else {
+        if (checkUser(userNoPass)) {
             currentUser = userNoPass;
+            currentUser.setPassword(userRepository.getPassword(userNoPass));
+
+        } else {
+            User newUser = new User(req.getParameter("email"),
+                    req.getParameter("name"), createPassword());
+            userRepository.createUser(newUser);
+            currentUser = newUser;
         }
 
     }

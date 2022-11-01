@@ -56,6 +56,26 @@ public class UserRepository {
         return false;
     }
 
+    public String getPassword(User user){
+
+        String QUARY = "SELECT Name, Password FROM user";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String name = resultSet.getString(1);
+
+                if (user.getName().equals(name)){
+                    return resultSet.getString(2);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public User selectUserByMail(String email) {
         String query = "SELECT * FROM user WHERE user_email = '" + email + "'";
