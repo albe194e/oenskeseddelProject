@@ -23,14 +23,13 @@ public class createController {
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
                 "    <link rel=\"stylesheet\" href=\"home.css\">\n" +
-
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>password</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "\n" +
                 "<a href=\"http://localhost:8080/\">\n" +
-                "   <img class=\"homeButton\" src=\"/homeButton.png\">\n" +
+                "   <img class=\"cloudButton\" src=\"/homeButton.png\">\n" +
                 "</a>\n" +
                 "\n" +
                 "<h2 class=\"verdanaText\">Tillyke " + UserService.currentUser.getName() + ", du har lavet en online ønskeliste! <br>\n" +

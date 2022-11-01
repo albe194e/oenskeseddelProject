@@ -5,11 +5,28 @@ body {
     background-size: cover;
 }
 
-#homeButton {
+.homeButton {
+    /*Center image*/
+    float: right;
     margin-top: -70px;
+    margin-right: 10px;
+    width: 15%;
+
+    /*Hover part*/
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    filter: grayscale(100);
 }
 
-.homeButton {
+.homeButton:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+.cloudButton {
     /*Center image*/
     float: right;
     margin-right: 10px;
@@ -24,7 +41,7 @@ body {
     filter: grayscale(100);
 }
 
-.homeButton:hover {
+.cloudButton:hover {
     transform: scale(1.1);
     filter: grayscale(0);
 }
@@ -72,7 +89,7 @@ body {
 }
 
 ul {
-    background-color: rgba(0,246,255,0.28);
+    background-color: rgba(0, 246, 255, 0.28);
     height: auto;
     width: 200px;
     border-radius: 10px;
