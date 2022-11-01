@@ -43,8 +43,7 @@
 
             <button class="bottomRight" type="submit">Submit ønskeliste</button>
         </form>
-
-
+    <button onclick="deleteAllWishes()">Delete all wishes</button>
 </div>
 
 
@@ -64,7 +63,6 @@
 
             document.getElementById('inputForm').value = document.getElementById('inputForm').value + wish + ';'
 
-
             document.getElementById('addWish').value = '';
         }
     }
@@ -79,9 +77,18 @@
 
         document.getElementById('inputForm').value = text
 
-        var wishText = wish.innerText;
         wish.remove();
         document.getElementById('removeWish').value = '';
+        
+        
+
+    }
+    function deleteAllWishes() {
+        document.getElementById('inputForm').value = ''
+
+        while (list.childElementCount > 0){
+            list.removeChild(list.firstChild)
+        }
     }
 
 

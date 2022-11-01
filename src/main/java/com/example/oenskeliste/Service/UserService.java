@@ -20,7 +20,7 @@ public class UserService {
     public void createUser(WebRequest req) {
 
         User userNoPass = new User(req.getParameter("email"),
-                req.getParameter("name"));
+                                   req.getParameter("name"));
 
         if (checkUser(userNoPass)) {
             currentUser = userNoPass;
@@ -28,17 +28,17 @@ public class UserService {
 
         } else {
             User newUser = new User(req.getParameter("email"),
-                    req.getParameter("name"), createPassword());
+                                    req.getParameter("name"),
+                                    createPassword());
+
             userRepository.createUser(newUser);
             currentUser = newUser;
         }
-
     }
 
     private boolean checkUser(User user){
 
         return userRepository.checkIfUserExist(user);
-
     }
 
     public boolean login(String email, String password) {
@@ -70,6 +70,5 @@ public class UserService {
             }
 
         return password;
-
     }
 }
