@@ -24,5 +24,4 @@ public class DCM {
         System.out.println("CREATING CONNECTION");
         return conn;
     }
-
 }
