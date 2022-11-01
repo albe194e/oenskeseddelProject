@@ -3,7 +3,6 @@
 }
 
 .homePageSubDivs {
-    height: 150px;
     position: relative;
     border: 2px solid rgb(26, 53, 1);
     background-color: rgb(162, 173, 121);
@@ -11,7 +10,7 @@
 
 .bottomRight {
     display: flex;
-    height: 130px;
+    position: absolute;
     justify-content: right;
     align-items: center;
 }
