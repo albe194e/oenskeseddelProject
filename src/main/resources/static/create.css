@@ -3,14 +3,30 @@
 }
 
 .homePageSubDivs {
-    position: relative;
-    border: 2px solid rgb(26, 53, 1);
-    background-color: rgb(162, 173, 121);
+position: relative;
+
 }
 
 .bottomRight {
+    display: block;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+}
+
+
+.centerFlex {
+    margin-top: 200px;
+    margin-right: 200px;
+    margin-left: 200px;
     display: flex;
-    position: absolute;
-    justify-content: right;
-    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.spacer {
+    margin-left: 20px;
+    margin-right: 20px;
 }

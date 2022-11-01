@@ -70,9 +70,10 @@ body {
 }
 
 ul {
-    background: #868040;
-    height: 600px;
+    background-color: rgba(0,246,255,0.28);
+    height: auto;
     width: 200px;
+    border-radius: 10px;
 
 }
 

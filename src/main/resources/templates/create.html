@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Create WishList</title>
 </head>
-<body class="flexBox">
+<body>
 
 <!--
 <a class="homeButton" href="window.location.href='http://localhost:8080/';">
@@ -14,37 +14,45 @@
 </a>
 -->
 
-<div class="mainLoginDiv">
-    <div id="loginDiv1">
-        <h2 class="verdanaText">Her kan du tilføje dine ønsker til listen</h2>
-        <input id="addWish" type="text"> <br>
+<div class="centerFlex">
+    <div>
+        <h2 class="verdanaText">Her kan du tilføje<br>dine ønsker til listen</h2>
+        <label for="addWish"></label><input id="addWish" type="text"> <br>
         <button onclick="addWish()">Click me to add to list</button>
         <br>
     </div>
 
+    <div class="spacer"></div>
+
     <div>
-        <h2 class="verdanaText">Her kan du fjerne dine ønsker fra listen</h2>
-        <input id="removeWish" type="text"> <br>
+        <h2 class="verdanaText">Her kan du fjerne<br>dine ønsker fra listen</h2>
+        <label for="removeWish"></label><input id="removeWish" type="text"> <br>
         <button onclick="removeWish()">Click me to remove the wish</button>
         <br>
     </div>
-    <ul id="wishlist">
-
-    </ul>
 
 </div>
+<div>
+    <ul id="wishlist">
+    </ul>
+</div>
+
+
 
 
 <div class="homePageSubDivs">
 
-        <form action="/submitList" method="post">
+    <form action="/submitList" method="post">
 
-            <label for="inputForm"></label>
-            <input id="inputForm" type="text" name="wish" style="display: none">
+        <label for="inputForm"></label>
+        <input id="inputForm" type="text" name="wish" style="display: none">
+        <div class="bottomRight">
+            <button type="submit">Submit ønskeliste</button>
+            <button onclick="deleteAllWishes()">Delete all wishes</button>
+        </div>
 
-            <button class="bottomRight" type="submit">Submit ønskeliste</button>
-        </form>
-    <button onclick="deleteAllWishes()">Delete all wishes</button>
+    </form>
+
 </div>
 
 
@@ -80,14 +88,14 @@
 
         wish.remove();
         document.getElementById('removeWish').value = '';
-        
-        
+
 
     }
+
     function deleteAllWishes() {
         document.getElementById('inputForm').value = ''
 
-        while (list.childElementCount > 0){
+        while (list.childElementCount > 0) {
             list.removeChild(list.firstChild)
         }
     }
