@@ -5,6 +5,25 @@ body {
     background-size: cover;
 }
 
+.homeButton2 {
+    /*Center image*/
+    float: right;
+    margin-right: 10px;
+    width: 15%;
+
+    /*Hover part*/
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    filter: grayscale(100);
+}
+
+.homeButton2:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
 
 .homeButton {
     /*Center image*/

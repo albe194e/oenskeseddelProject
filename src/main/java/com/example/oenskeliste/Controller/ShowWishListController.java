@@ -14,7 +14,7 @@ public class ShowWishListController {
     WishlistService wls = new WishlistService();
 
     @PostMapping("/getList")
-    public String getList(WebRequest req){
+    public String getList(WebRequest req) {
 
         ArrayList<String> wishes = wls.getAllByPassword(req);
         String name = wls.getName(req);
@@ -33,7 +33,7 @@ public class ShowWishListController {
                 "    <link rel=\"stylesheet\" href=\"/home.css\">\n" +
                 "\n" +
                 "<a href=\"http://localhost:8080/\">\n" +
-                "    <img class=\"homeButton\" src=\"/homeButton.png\">\n" +
+                "    <img class=\"homeButton2\" src=\"/homeButton.png\">\n" +
                 "</a>\n" +
                 "</head>\n" +
                 "<body>\n" +
