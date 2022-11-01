@@ -29,7 +29,7 @@ public class createController {
                 "<body>\n" +
                 "\n" +
                 "<a href=\"http://localhost:8080/\">\n" +
-                "   <img class=\"homeButton\" src=\"homeButton.png\">\n" +
+                "   <img class=\"homeButton2\" src=\"homeButton.png\">\n" +
                 "</a>\n" +
                 "\n" +
                 "<h2 class=\"verdanaText\">Tillyke " + UserService.currentUser.getName() + ", du har lavet en online ønskeliste! <br>\n" +
