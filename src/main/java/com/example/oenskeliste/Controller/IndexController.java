@@ -26,15 +26,10 @@ public class IndexController {
     @PostMapping("/create")
     public String create(WebRequest req) {
 
-        boolean containsSnabelA = false;
         String email = req.getParameter("email");
 
-        for (int i = 0; i < email.length(); i++) {
-            if (email.indexOf(i) == '@') {
-                containsSnabelA = true;
-                break;
-            }
-        }
+        boolean containsSnabelA = email.contains("@");
+
 
         if (Objects.requireNonNull(req.getParameter("name")).length() < 3 && !containsSnabelA) return "index";
         else {
