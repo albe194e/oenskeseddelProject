@@ -1,9 +1,6 @@
 package com.example.oenskeliste.Controller;
 
-import com.example.oenskeliste.Model.User;
-import com.example.oenskeliste.Repository.UserRepository;
 import com.example.oenskeliste.Service.UserService;
-import org.springframework.boot.web.server.Http2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +26,17 @@ public class IndexController {
     @PostMapping("/create")
     public String create(WebRequest req) {
 
+        boolean containsSnabelA = false;
+        String email = req.getParameter("email");
 
-        if (Objects.requireNonNull(req.getParameter("name")).length() < 3) return "index";
+        for (int i = 0; i < email.length(); i++) {
+            if (email.indexOf(i) == '@') {
+                containsSnabelA = true;
+                break;
+            }
+        }
+
+        if (Objects.requireNonNull(req.getParameter("name")).length() < 3 && !containsSnabelA) return "index";
         else {
 
             userService.createUser(req);
