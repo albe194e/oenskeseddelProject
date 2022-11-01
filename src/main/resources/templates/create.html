@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="create.css">
+    <link rel="stylesheet" href="/create.css">
+    <link rel="stylesheet" href="/home.css">
     <meta charset="UTF-8">
     <title>Create WishList</title>
 </head>
@@ -21,6 +21,7 @@
         <button onclick="addWish()">Click me to add to list</button>
         <br>
     </div>
+
     <div>
         <h2 class="verdanaText">Her kan du fjerne dine ønsker fra listen</h2>
         <input id="removeWish" type="text"> <br>
@@ -34,16 +35,15 @@
 </div>
 
 
-<div>
+<div class="homePageSubDivs">
 
-<div>
-    <form class="homePageSubDivs" action="/submitList" method="post">
+        <form action="/submitList" method="post">
 
-        <input id="inputForm" type="text" name="wish" style="display: none">
+            <input id="inputForm" type="text" name="wish" style="display: none">
 
-        <button class="bottomright" type="submit">Submit ønskeliste</button>
-    </form>
-</div>
+            <button class="bottomRight" type="submit">Submit ønskeliste</button>
+        </form>
+
 
 </div>
 
