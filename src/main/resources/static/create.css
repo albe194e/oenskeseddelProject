@@ -3,16 +3,21 @@
 }
 
 .homePageSubDivs {
-position: relative;
+    position: relative;
+    display: block;
 
 }
 
-.bottomRight {
-    display: block;
+.bottomright {
     position: fixed;
     text-align: center;
     bottom: 0;
     right: 0;
+}
+
+button {
+    border-radius: 10px;
+    margin: 10px;
 }
 
 
