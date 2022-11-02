@@ -29,8 +29,8 @@ public class WishRepository {
             for (int i = 0; i < wishes.length; i++) {
                 PreparedStatement preparedStatement = connection.prepareStatement(ADD_WISH_QUERY);
 
-                preparedStatement.setInt(1,getUserId());
-                preparedStatement.setString(2,wishes[i]);
+                preparedStatement.setInt(1, getUserId());
+                preparedStatement.setString(2, wishes[i]);
 
                 preparedStatement.executeUpdate();
             }
@@ -41,22 +41,21 @@ public class WishRepository {
             e.printStackTrace();
         }
     }
-    public int getUserId(){
+
+    private int getUserId() {
 
         String QUARY = "SELECT Id, Name from user";
 
         try {
 
             PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
-
             ResultSet resultSet = preparedStatement.executeQuery();
 
-
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
 
-                if (name.equals(UserService.currentUser.getName())){
+                if (name.equals(UserService.currentUser.getName())) {
                     System.out.println("ID: " + id +
                             "\nName: " + name);
                     return id;
@@ -69,9 +68,7 @@ public class WishRepository {
 
         System.err.println("Didnt work");
         return 0;
-
     }
-
 
     public void deleteWish(int id) {
         final String DELETE_QUERY = "DELETE FROM wish WHERE wish_id=?";
@@ -109,7 +106,6 @@ public class WishRepository {
 
                 wishList.add(new Wish(wishId, name, description, link, isReservedResult));
             }
-
 
 
         } catch (SQLException e) {

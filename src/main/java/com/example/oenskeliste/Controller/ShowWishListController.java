@@ -1,20 +1,21 @@
 package com.example.oenskeliste.Controller;
-
 import com.example.oenskeliste.Service.WishlistService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
-
 import java.util.ArrayList;
 
 
-@RestController
+@Controller
 public class ShowWishListController {
 
     WishlistService wls = new WishlistService();
 
-    @PostMapping("/getList")
-    public String getList(WebRequest req) {
+    @GetMapping("/getList")
+    public String getList(WebRequest req, Model model) {
 
         ArrayList<String> wishes = wls.getAllByPassword(req);
         String name = wls.getName(req);
@@ -22,31 +23,13 @@ public class ShowWishListController {
         String list = "";
 
         for (int i = 0; i < wishes.size(); i++) {
-            list = list + "\n <br> - " + wishes.get(i);
+            list += "- " + wishes.get(i) + "\n";
         }
+        model.addAttribute("list",list);
 
-        return "<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "    <title>ReservedList</title>\n" +
-                "    <link rel=\"stylesheet\" href=\"/home.css\">\n" +
-                "\n" +
-                "<a href=\"http://localhost:8080/\">\n" +
-                "    <img class=\"homeButton\" src=\"/homeButton.png\">\n" +
-                "</a>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<h1 class=\"verdanaText\"> " + name + "'s ønskeliste </h1>\n" +
-                "\n" +
-                "<h2 class=\"verdanaText\">\n" +
+        model.addAttribute("name",name);
 
-                list +
-                "\n" +
-                "    \n" +
-                "\n" +
-                "</h2>\n" +
-                "</body>\n" +
-                "</html>";
+
+        return "/reservedWishList";
     }
 }

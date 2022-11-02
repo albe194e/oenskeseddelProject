@@ -5,23 +5,19 @@
     <meta charset="UTF-8">
     <title>Her kan du lave din egen online ønskeseddel!</title>
 </head>
-
 <body>
-
 <div>
-    <h1 class="header1">Lav din egen online ønskeseddel</h1>
+    <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
 
+    <h1 class="header1">Lav din egen online ønskeseddel</h1>
     <a th:href="@{'/'}">
         <img class="homeButton" src="/homeButton.png">
     </a>
-
 </div>
-
-
 <div class="mainLoginDiv">
 
     <div id="loginDiv1">
-        <h2 class="verdanaText">Her kan du oprette dig og lave din ønskeseddel</h2>
+        <h2 class="verdanaText">Her kan du oprette dig eller logge ind</h2>
 
         <form action="/create" method="post">
             <label> <br>
@@ -40,7 +36,7 @@
 
     <div id="loginDiv2">
         <h2 class="verdanaText">Her kan du se andres ønsker via kode</h2>
-        <form action="/getList" method="post">
+        <form action="/getList" method="get">
             <label>
                 Indtast kode her <br>
                 <input class="homePageInputs" type="text" name="password"> <br>
@@ -49,27 +45,5 @@
         </form>
     </div>
 </div>
-
-
-<!--
-
-    <form action="/create" method="post">
-
-        <label for="name">Enter you name:  <br>
-            <input type="text" name="name">
-        </label> <br>
-        <label for="email">Enter email:  <br>
-            <input type="text" name="email">
-        </label> <br>
-        <label for="age">Enter age:  <br>
-            <input type="text" name="age">
-        </label>
-        <button type="submit">Create user</button>
-
-    </form>
-
--->
-
-
 </body>
 </html>

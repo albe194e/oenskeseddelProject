@@ -32,7 +32,7 @@ public class UserRepository {
         }
     }
 
-    public boolean checkIfUserExist(User user){
+    public boolean checkIfUserExist(User user) {
 
         try {
             String QUARY = "SELECT Name, Email from user";
@@ -40,11 +40,11 @@ public class UserRepository {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String name = resultSet.getString(1);
                 String email = resultSet.getString(2);
 
-                if (name.equals(user.getName()) && email.equals(user.getEmail())){
+                if (name.equals(user.getName()) && email.equals(user.getEmail())) {
                     System.out.println("User already exists");
                     return true;
                 }
@@ -56,17 +56,17 @@ public class UserRepository {
         return false;
     }
 
-    public String getPassword(User user){
+    public String getPassword(User user) {
 
         String QUARY = "SELECT Name, Password FROM user";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String name = resultSet.getString(1);
 
-                if (user.getName().equals(name)){
+                if (user.getName().equals(name)) {
                     return resultSet.getString(2);
                 }
             }
@@ -98,8 +98,6 @@ public class UserRepository {
 
         return selectedUser;
     }
-
-
 
 
 }

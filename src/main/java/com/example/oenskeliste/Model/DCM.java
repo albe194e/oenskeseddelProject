@@ -10,7 +10,7 @@ public class DCM {
     private static String password;
     public static Connection conn = getConnection();
 
-    public static Connection getConnection() {
+    private static Connection getConnection() {
         hostname = "jdbc:mysql://nocluewhatsoever.mysql.database.azure.com/wishlist";
         username = "HaDoCK";
         password = "Nikolaj#14";

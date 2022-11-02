@@ -54,9 +54,6 @@ public class UserService {
 
     }
 
-    public User getCurrentUser() {
-        return currentUser;
-    }
 
     private String createPassword(){
         Random r = new Random();

@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>ReservedList</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/home.css">
 </head>
-<body>
-<h1 class="verdanaText"> blabla's ønskeliste </h1>
+<body onload="createList()">
 
-<h2 class="verdanaText">
+<div>
+    <h1 class="verdanaText"> <span th:text="${name}"></span>'s ønskeliste </h1>
+
+    <a href="http://localhost:8080">
+        <img style="float:right;" class="homeButton" src="homeButton.png">
+    </a>
+
+</div>
+
+<div >
+    <pre class="verdanaText" id="listshowed" th:text="${list}"></pre>
+</div>
 
 
-
-</h2>
 </body>
+
 </html>

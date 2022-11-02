@@ -12,12 +12,8 @@ import java.util.List;
 public class WishService {
 
     private WishRepository wishRepository = new WishRepository();
-    private WishlistService wishlistService;
-
 
     public void addWishes(WebRequest req) {
-
-
 
         String[] wishes = req.getParameter("wish").split(";");
 

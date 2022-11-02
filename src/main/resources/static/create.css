@@ -35,3 +35,7 @@ button {
     margin-left: 20px;
     margin-right: 20px;
 }
+button{
+    border-radius: 10px;
+    margin: 30px;
+}
