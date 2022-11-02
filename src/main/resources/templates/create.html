@@ -8,9 +8,10 @@
 </head>
 <body>
 <div>
-    <h4 class="verdanaText"></h4>
+    <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
+    <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
     <h1 class="header1">Her kan du tilføje og fjerne ønsker fra listen</h1> <br>
-    <a href="window.location.href='http://localhost:8080/';">
+    <a href="http://localhost:8080">
         <img class="homeButton" src="homeButton.png">
     </a>
 </div>
@@ -47,7 +48,7 @@
 </div>
 </div>
 </body>
-<script>
+<script >
     var list = document.getElementById('wishlist')
 
 

@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
-import java.time.LocalDateTime;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,7 +21,12 @@ public class IndexController {
     @GetMapping("/")
     public String index(HttpSession session, Model model) {
 
+
         model.addAttribute("date", DateFormat.getDateInstance().format(new Date()));
+        if (UserService.currentUser != null){
+            model.addAttribute("login", "Logget ind som: " +UserService.currentUser.getName());
+        }
+
         String UrlTemplate = "index";
         if (session.getAttribute("user") != null) {
             UrlTemplate = "redirect:/user-homepage";
@@ -32,33 +37,17 @@ public class IndexController {
     @PostMapping("/create")
     public String create(WebRequest req, Model model) {
 
-        String email = req.getParameter("email");
+        model.addAttribute("date", DateFormat.getDateInstance().format(new Date()));
 
-        boolean containsSnabelA = email.contains("@");
 
-        if (Objects.requireNonNull(req.getParameter("name")).length() < 3 && !containsSnabelA) return "index";
+        if (Objects.requireNonNull(req.getParameter("name")).length() < 3) return "index";
         else {
 
             userService.createUser(req);
+            if (UserService.currentUser != null){
+                model.addAttribute("login", "Logget ind som: " +UserService.currentUser.getName());
+            }
             return "/create";
         }
-    }
-
-
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.removeAttribute("user");
-
-        return "redirect:/";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login.html";
-    }
-
-    @GetMapping("/signUp")
-    public String signUp() {
-        return "signUp.html";
     }
 }
