@@ -1,10 +1,7 @@
 package com.example.oenskeliste.Repository;
-
 import com.example.oenskeliste.Model.DCM;
 import com.example.oenskeliste.Model.User;
 import org.springframework.stereotype.Repository;
-
-
 import java.sql.*;
 
 @Repository
@@ -13,11 +10,9 @@ public class UserRepository {
     Connection connection = DCM.conn;
 
     //Use only when database is online
-
-
     public void createUser(User user) {
+        //Creates User
         String query = "INSERT INTO user (Name, Email, Password) VALUES(?, ?, ?)";
-
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -50,12 +45,9 @@ public class UserRepository {
                     break;
                 }
             }
-
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         //Deletes all wishes linked to user
         String QUARY_DELETE_WISHES = "DELETE FROM wish WHERE UserId=?";
 
@@ -67,8 +59,6 @@ public class UserRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
         //Deletes the user
         String QUARY = "DELETE from user where Email=?";
 
@@ -80,13 +70,12 @@ public class UserRepository {
             throw new RuntimeException(e);
         }
     }
-
     public boolean checkIfUserExist(User user) {
+        //Selects user if existing
+        String QUARY = "SELECT Name, Email from user";
 
         try {
-            String QUARY = "SELECT Name, Email from user";
             PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
-
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -98,13 +87,11 @@ public class UserRepository {
                     return true;
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
-
     public String getPassword(User user) {
 
         String QUARY = "SELECT Name, Password FROM user";
@@ -125,5 +112,4 @@ public class UserRepository {
         }
         return null;
     }
-
 }

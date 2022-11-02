@@ -41,7 +41,6 @@
     <ul id="wishlist">
     </ul>
 </div>
-
 <div class="homePageSubDivs">
     <div class="bottomright">
     <form action="/submitList" method="post">
@@ -54,6 +53,8 @@
 </div>
 </div>
 </body>
+
+<!-- JAVASCRIPT -->
 <script>
 
     var list = document.getElementById('wishlist')
@@ -72,7 +73,6 @@
             document.getElementById('addWish').value = '';
         }
     }
-
     function removeWish() {
 
         var wish = document.getElementById(document.getElementById('removeWish').value);
@@ -88,15 +88,12 @@
 
 
     }
-
     function deleteAllWishes() {
         document.getElementById('inputForm').value = ''
 
         while (list.childElementCount > 0) {
             list.removeChild(list.firstChild)
         }
-
     }
-
 </script>
 </html>

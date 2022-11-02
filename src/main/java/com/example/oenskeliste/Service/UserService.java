@@ -1,21 +1,13 @@
 package com.example.oenskeliste.Service;
-
 import com.example.oenskeliste.Model.User;
 import com.example.oenskeliste.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
-
 import java.util.Random;
-
-
 @Service
 public class UserService {
-
     public static User currentUser;
     private UserRepository userRepository = new UserRepository();
-
-
-
 
     public void createUser(WebRequest req) {
 
@@ -35,17 +27,13 @@ public class UserService {
             currentUser = newUser;
         }
     }
-
     private boolean checkUser(User user){
 
         return userRepository.checkIfUserExist(user);
     }
-
     public void deleteUser(User user){
         userRepository.deleteUser(user);
     }
-
-
     private String createPassword(){
         Random r = new Random();
 

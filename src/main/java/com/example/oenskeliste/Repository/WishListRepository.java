@@ -1,16 +1,9 @@
 package com.example.oenskeliste.Repository;
 
 import com.example.oenskeliste.Model.DCM;
-import com.example.oenskeliste.Model.Wish;
-import com.example.oenskeliste.Model.WishList;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-
 @Repository
 public class WishListRepository {
 
@@ -54,7 +47,6 @@ public class WishListRepository {
         }
         return wishes;
     }
-
     public String getNameFromPassword(String password) {
         String PASSWORD_QUERY = "SELECT Name, Password FROM user";
 

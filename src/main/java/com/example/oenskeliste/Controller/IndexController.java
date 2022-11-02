@@ -37,8 +37,8 @@ public class IndexController {
     @PostMapping("/create")
     public String create(WebRequest req, Model model) {
 
+        //Thymeleaf
         model.addAttribute("date", DateFormat.getDateInstance().format(new Date()));
-
 
         if (Objects.requireNonNull(req.getParameter("name")).length() < 3) return "index";
         else {
