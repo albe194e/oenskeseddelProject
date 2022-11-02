@@ -3,6 +3,7 @@ import com.example.oenskeliste.Service.UserService;
 import com.example.oenskeliste.Service.WishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 public class createController {
 
     WishService wishService = new WishService();
+
 
     @PostMapping("/submitList")
     public String submitList(WebRequest req, Model model) {
@@ -34,4 +36,5 @@ public class createController {
 
         return "/getPassword";
     }
+
 }

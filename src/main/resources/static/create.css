@@ -39,3 +39,6 @@ button{
     border-radius: 10px;
     margin: 30px;
 }
+#deleteUser{
+    position: fixed;
+}

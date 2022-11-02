@@ -9,11 +9,15 @@
 <body>
 <div>
     <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
-    <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
     <h1 class="header1">Her kan du tilføje og fjerne ønsker fra listen</h1> <br>
     <a href="http://localhost:8080">
         <img class="homeButton" src="homeButton.png">
     </a>
+
+    <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
+    <form action="/deleteUser" method="post">
+        <button type="submit">Slet din bruger og dine ønsker her!</button>
+    </form> <br>
 </div>
 <div class="centerFlex">
     <div>
@@ -32,10 +36,12 @@
         <br>
     </div>
 </div>
+
 <div>
     <ul id="wishlist">
     </ul>
 </div>
+
 <div class="homePageSubDivs">
     <div class="bottomright">
     <form action="/submitList" method="post">
@@ -48,7 +54,8 @@
 </div>
 </div>
 </body>
-<script >
+<script>
+
     var list = document.getElementById('wishlist')
 
 
@@ -88,6 +95,8 @@
         while (list.childElementCount > 0) {
             list.removeChild(list.firstChild)
         }
+
     }
+
 </script>
 </html>

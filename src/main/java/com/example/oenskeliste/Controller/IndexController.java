@@ -1,6 +1,9 @@
 package com.example.oenskeliste.Controller;
 
+import com.example.oenskeliste.Model.User;
+import com.example.oenskeliste.Repository.WishListRepository;
 import com.example.oenskeliste.Service.UserService;
+import com.example.oenskeliste.Service.WishlistService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +20,10 @@ import java.util.Objects;
 public class IndexController {
 
     private UserService userService = new UserService();
+    WishListRepository wishlistRepo = new WishListRepository();
 
     @GetMapping("/")
-    public String index(HttpSession session, Model model) {
+    public String index(Model model) {
 
 
         model.addAttribute("date", DateFormat.getDateInstance().format(new Date()));
@@ -27,11 +31,7 @@ public class IndexController {
             model.addAttribute("login", "Logget ind som: " +UserService.currentUser.getName());
         }
 
-        String UrlTemplate = "index";
-        if (session.getAttribute("user") != null) {
-            UrlTemplate = "redirect:/user-homepage";
-        }
-        return UrlTemplate;
+        return "index";
     }
 
     @PostMapping("/create")
@@ -49,5 +49,10 @@ public class IndexController {
             }
             return "/create";
         }
+    }
+    @PostMapping("/deleteUser")
+    public String deleteUser(){
+        userService.deleteUser(UserService.currentUser);
+        return "index";
     }
 }

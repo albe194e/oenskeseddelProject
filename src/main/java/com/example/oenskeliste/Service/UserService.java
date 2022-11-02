@@ -41,17 +41,8 @@ public class UserService {
         return userRepository.checkIfUserExist(user);
     }
 
-    public boolean login(String email, String password) {
-        User user = userRepository.selectUserByMail(email);
-        if (user == null) {
-            return false;
-        } else if (user.getPassword().equals(password)) {
-            currentUser = user;
-            return true;
-        } else {
-            return false;
-        }
-
+    public void deleteUser(User user){
+        userRepository.deleteUser(user);
     }
 
 
