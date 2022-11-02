@@ -5,6 +5,14 @@ body {
     background-size: cover;
 }
 
+.negativeMargin {
+    margin-top: -60px;
+}
+
+.negativeMargin2 {
+    margin-top: -40px;
+}
+
 .homeButton {
     /*Center image*/
     float: right;
@@ -52,8 +60,10 @@ body {
 }
 
 .mainLoginDiv {
+    position: center;
     align-self: auto;
-    margin: 100px 50px 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     height: 500px;
 
 
@@ -102,6 +112,11 @@ ul {
 
 }
 
+.loginMargin {
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
 
 .verdanaText {
     font-family: Verdana, serif;

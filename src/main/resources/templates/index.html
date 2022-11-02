@@ -8,11 +8,17 @@
 <body>
 <div>
     <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
-    <h1 class="header1">Lav din egen online ønskeseddel</h1>
-    <a th:href="@{'/'}">
-        <img class="homeButton" src="/homeButton.png">
-    </a>
-    <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
+    <div class="negativeMargin2">
+        <h1 class="header1">Lav din egen online ønskeseddel</h1>
+        <a th:href="@{'/'}">
+            <img class="homeButton" src="/homeButton.png">
+        </a>
+
+    </div>
+    <div class="loginMargin">
+        <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
+    </div>
+
 </div>
 <div class="mainLoginDiv">
 
