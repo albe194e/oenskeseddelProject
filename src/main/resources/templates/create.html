@@ -9,15 +9,15 @@
 <body>
 <div>
     <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
-    <h1 class="header1">Her kan du tilføje og fjerne ønsker fra listen</h1> <br>
-    <a href="http://localhost:8080">
-        <img class="homeButton" src="homeButton.png">
-    </a>
+    <div class="negativeMargin">
+        <h1 class="header1">Her kan du tilføje og fjerne ønsker fra listen</h1> <br>
+        <a href="http://localhost:8080">
+            <img class="homeButton" src="homeButton.png">
+        </a>
 
-    <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
-    <form action="/deleteUser" method="post">
-        <button type="submit">Slet din bruger og dine ønsker her!</button>
-    </form> <br>
+        <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
+    </div>
+
 </div>
 <div class="centerFlex">
     <div>
@@ -52,6 +52,11 @@
     </form>
     <button onclick="deleteAllWishes()">Fjern alle ønsker</button>
 </div>
+    <div class="bottomLeft">
+        <form action="/deleteUser" method="post">
+            <button type="submit">Slet din bruger og dine ønsker her!</button>
+        </form>
+    </div>
 </div>
 </body>
 <script>
