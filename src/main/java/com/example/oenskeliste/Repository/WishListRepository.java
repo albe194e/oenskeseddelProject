@@ -4,6 +4,7 @@ import com.example.oenskeliste.Model.DCM;
 import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
+
 @Repository
 public class WishListRepository {
 
@@ -47,6 +48,8 @@ public class WishListRepository {
         }
         return wishes;
     }
+
+
     public String getNameFromPassword(String password) {
         String PASSWORD_QUERY = "SELECT Name, Password FROM user";
 

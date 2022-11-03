@@ -1,10 +1,7 @@
 package com.example.oenskeliste.Repository;
-
-
 import com.example.oenskeliste.Model.DCM;
 import com.example.oenskeliste.Service.UserService;
 import org.springframework.stereotype.Repository;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,9 +10,11 @@ import java.sql.SQLException;
 @Repository
 public class WishRepository {
     Connection connection = DCM.conn;
+
     //Use only when database is online
 
     public void addWish(String[] wishes) {
+
         //Adds wishes to database
         final String ADD_WISH_QUERY = "INSERT INTO wish (UserId,Name ) VALUES(?, ?)";
 

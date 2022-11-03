@@ -4,8 +4,10 @@ import com.example.oenskeliste.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
 import java.util.Random;
+
 @Service
 public class UserService {
+
     public static User currentUser;
     private UserRepository userRepository = new UserRepository();
 
@@ -34,6 +36,7 @@ public class UserService {
     public void deleteUser(User user){
         userRepository.deleteUser(user);
     }
+
     private String createPassword(){
         Random r = new Random();
 

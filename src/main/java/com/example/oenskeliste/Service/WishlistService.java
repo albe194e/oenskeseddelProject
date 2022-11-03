@@ -3,6 +3,7 @@ import com.example.oenskeliste.Repository.WishListRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
 import java.util.ArrayList;
+
 @Service
 public class WishlistService {
 

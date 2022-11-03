@@ -8,9 +8,11 @@ import org.springframework.web.context.request.WebRequest;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 @Controller
 public class ShowWishListController {
-    WishlistService wls = new WishlistService();
+
+    private WishlistService wls = new WishlistService();
 
     @GetMapping("/getList")
     public String getList(WebRequest req, Model model) {

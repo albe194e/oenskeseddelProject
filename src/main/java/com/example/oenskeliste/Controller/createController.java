@@ -12,7 +12,7 @@ import java.util.Date;
 @Controller
 public class createController {
 
-    WishService wishService = new WishService();
+    private WishService wishService = new WishService();
 
     @PostMapping("/submitList")
     public String submitList(WebRequest req, Model model) {

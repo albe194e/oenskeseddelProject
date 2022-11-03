@@ -5,6 +5,7 @@ import org.springframework.web.context.request.WebRequest;
 
 @Service
 public class WishService {
+
     private WishRepository wishRepository = new WishRepository();
 
     public void addWishes(WebRequest req) {
