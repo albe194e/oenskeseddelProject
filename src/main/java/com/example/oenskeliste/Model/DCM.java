@@ -18,6 +18,7 @@ public class DCM {
 
         File file = new File("src/main/resources/static/databaseLogin.csv");
 
+
         ArrayList<String> login = new ArrayList<>();
 
         try {
