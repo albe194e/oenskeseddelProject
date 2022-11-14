@@ -7,7 +7,7 @@ import java.sql.*;
 @Repository
 public class UserRepository {
 
-    Connection connection = DCM.conn;
+    Connection connection = DCM.getConn();
 
     //Use only when database is online
     public void createUser(User user) {
@@ -19,7 +19,6 @@ public class UserRepository {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
-
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Can't insert user");

@@ -33,5 +33,4 @@ public class createController {
 
         return "/getPassword";
     }
-
 }

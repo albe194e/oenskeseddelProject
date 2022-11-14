@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 @Repository
 public class WishRepository {
-    Connection connection = DCM.conn;
+    Connection connection = DCM.getConn();
 
     //Use only when database is online
 

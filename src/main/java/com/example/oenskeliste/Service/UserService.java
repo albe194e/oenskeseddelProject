@@ -9,6 +9,7 @@ import java.util.Random;
 public class UserService {
 
     public static User currentUser;
+
     private UserRepository userRepository = new UserRepository();
 
     public void createUser(WebRequest req) {

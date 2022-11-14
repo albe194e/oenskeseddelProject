@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Repository
 public class WishListRepository {
 
-    Connection connection = DCM.conn;
+    Connection connection = DCM.getConn();
 
     public ArrayList<String> getWishesByPassword(String password) {
 
