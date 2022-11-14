@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -15,20 +16,19 @@ public class createController {
     private WishService wishService = new WishService();
 
     @PostMapping("/submitList")
-    public String submitList(WebRequest req, Model model) {
+    public String submitList(WebRequest req, Model model, HttpSession session) {
 
-        if (req.getParameter("wish").length() > 1) wishService.addWishes(req);
-        if (UserService.currentUser != null){
-            model.addAttribute("login", "Logget ind som: " +UserService.currentUser.getName());
+        if (req.getParameter("wish").length() > 1) wishService.addWishes(req, session);
+
+        if (session.getAttribute("user") != null){
+            model.addAttribute("login", "Logget ind som: " + session.getAttribute("user"));
         }
 
-        String password = UserService.currentUser.getPassword();
-        String name = UserService.currentUser.getName();
+        String password = wishService.getPassword(session);
 
         //Thymeleaf
         model.addAttribute("date", DateFormat.getDateInstance().format(new Date()));
-        model.addAttribute("login", "Logget ind som: " +UserService.currentUser.getName());
-        model.addAttribute("name",name);
+        model.addAttribute("name",session.getAttribute("user"));
         model.addAttribute("password",password);
 
         return "/getPassword";

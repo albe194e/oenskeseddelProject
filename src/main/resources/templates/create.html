@@ -12,7 +12,7 @@
     <div class="negativeMargin">
         <h1 class="header1">Her kan du tilføje og fjerne ønsker fra listen</h1> <br>
         <a href="http://176.22.128.91/">
-            <img class="homeButton" src="homeButton.png">
+            <img class="homeButton" src="homeButton.png" width="100px" height="100px">
         </a>
 
         <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
@@ -52,6 +52,10 @@
     <button onclick="deleteAllWishes()">Fjern alle ønsker</button>
 </div>
     <div class="bottomLeft">
+
+        <form action="/logout">
+            <button>log ud her</button>
+        </form>
         <form action="/deleteUser" method="post">
             <button type="submit">Slet din bruger og dine ønsker her!</button>
         </form>

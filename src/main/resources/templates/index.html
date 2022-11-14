@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <title>Her kan du lave din egen online ønskeseddel!</title>
 </head>
-<body>
+<body onload="loadLogOutbutton()">
 <div>
     <h4 class="verdanaText"> <span th:text="${date}"></span></h4>
     <div class="negativeMargin2">
         <h1 class="header1">Lav din egen online ønskeseddel</h1>
         <a href="http://176.22.128.91/">
-            <img style="float:right;" class="cloudButton" src="homeButton.png">
+            <img style="float:right;" class="cloudButton" src="homeButton.png" width="100px" height="100px">
         </a>
 
     </div>
     <div class="loginMargin">
-        <h4 class="verdanaText"> <span th:text="${login}"></span></h4>
+        <h4 class="verdanaText"> <span id="loggedIn?" th:text="${login}"></span></h4>
     </div>
 
 
@@ -52,5 +52,20 @@
         </form>
     </div>
 </div>
+<div class="bottomLeft">
+
+    <form action="/logout">
+        <button id="logoutButton" style="display: none">log ud her</button>
+    </form>
+</div>
 </body>
+<script>
+
+    function loadLogOutbutton() {
+        if (document.getElementById('loggedIn?').textContent !== ''){
+            document.getElementById('logoutButton').style.display = "block"
+        }
+    }
+
+</script>
 </html>

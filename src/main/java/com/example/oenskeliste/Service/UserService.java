@@ -3,39 +3,33 @@ import com.example.oenskeliste.Model.User;
 import com.example.oenskeliste.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
+
+import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 @Service
 public class UserService {
 
-    public static User currentUser;
-
     private UserRepository userRepository = new UserRepository();
 
     public void createUser(WebRequest req) {
 
-        User userNoPass = new User(req.getParameter("email"),
-                                   req.getParameter("name"));
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
 
-        if (checkUser(userNoPass)) {
-            currentUser = userNoPass;
-            currentUser.setPassword(userRepository.getPassword(userNoPass));
+        User userNoPass = new User(email, name);
 
-        } else {
-            User newUser = new User(req.getParameter("email"),
-                                    req.getParameter("name"),
-                                    createPassword());
-
+        if (!checkUser(userNoPass)) {
+            User newUser = new User(email, name, createPassword());
             userRepository.createUser(newUser);
-            currentUser = newUser;
         }
     }
     private boolean checkUser(User user){
 
         return userRepository.checkIfUserExist(user);
     }
-    public void deleteUser(User user){
-        userRepository.deleteUser(user);
+    public void deleteUser(HttpSession session){
+        userRepository.deleteUser((String) session.getAttribute("user"));
     }
 
     private String createPassword(){

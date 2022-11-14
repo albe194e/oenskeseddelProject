@@ -16,9 +16,7 @@ public class DCM {
 
     private static Connection createConnection() {
 
-        File file = new File("src/main/resources/static/databaseLogin.csv");
-
-
+        File file = new File("src/main/java/com/example/oenskeliste/Model/databaseLogin.csv");
         ArrayList<String> login = new ArrayList<>();
 
         try {

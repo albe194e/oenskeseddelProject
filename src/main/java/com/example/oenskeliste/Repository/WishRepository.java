@@ -13,7 +13,7 @@ public class WishRepository {
 
     //Use only when database is online
 
-    public void addWish(String[] wishes) {
+    public void addWish(String[] wishes, String name) {
 
         //Adds wishes to database
         final String ADD_WISH_QUERY = "INSERT INTO wish (UserId,Name ) VALUES(?, ?)";
@@ -22,7 +22,7 @@ public class WishRepository {
             for (int i = 0; i < wishes.length; i++) {
                 PreparedStatement preparedStatement = connection.prepareStatement(ADD_WISH_QUERY);
 
-                preparedStatement.setInt(1, getUserId());
+                preparedStatement.setInt(1, getUserId(name));
                 preparedStatement.setString(2, wishes[i]);
 
                 preparedStatement.executeUpdate();
@@ -33,7 +33,7 @@ public class WishRepository {
             e.printStackTrace();
         }
     }
-    private int getUserId() {
+    private int getUserId(String username) {
         //Finds user id
         String QUARY = "SELECT Id, Name from user";
 
@@ -45,7 +45,7 @@ public class WishRepository {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
 
-                if (name.equals(UserService.currentUser.getName())) {
+                if (name.equals(username)) {
                     System.out.println("ID: " + id +
                             "\nName: " + name);
                     return id;
@@ -56,5 +56,27 @@ public class WishRepository {
         }
         System.err.println("Didnt work");
         return 0;
+    }
+    public String getPassword(String name){
+        String QUARY = "SELECT Name, Password from user";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String username = resultSet.getString(1);
+                String password = resultSet.getString(2);
+
+                if (name.equals(username)){
+                    return password;
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

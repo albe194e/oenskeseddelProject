@@ -25,7 +25,7 @@ public class UserRepository {
             e.printStackTrace();
         }
     }
-    public void deleteUser(User user){
+    public void deleteUser(String user){
 
         //Finds UserId
         String QUARY_GETID = "SELECT Id, Name from user";
@@ -39,7 +39,7 @@ public class UserRepository {
 
                 String name = resultSet.getString(2);
 
-                if (name.equals(user.getName())){
+                if (name.equals(user)){
                     id = resultSet.getInt(1);
                     break;
                 }
@@ -59,11 +59,11 @@ public class UserRepository {
             throw new RuntimeException(e);
         }
         //Deletes the user
-        String QUARY = "DELETE from user where Email=?";
+        String QUARY = "DELETE from user where Name=?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(QUARY);
-            preparedStatement.setString(1,user.getEmail());
+            preparedStatement.setString(1,user);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
